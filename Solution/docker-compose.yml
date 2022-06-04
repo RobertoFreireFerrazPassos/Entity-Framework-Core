@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  schoolapi:
+    image: ${DOCKER_REGISTRY-}schoolapi
+    build:
+      context: .
+      dockerfile: src/SchoolApi/Dockerfile
+  schooldb:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "Postgres2019!"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/robertofreire/PostgreSQL:/var/lib/postgresql/data 
+    networks:
+      - postgres-compose-network
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "robertofreireferrazpassos@yahoo.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2019!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - schooldb
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
