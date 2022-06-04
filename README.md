@@ -23,6 +23,9 @@ Username: postgres
 Password: Postgres2019!
 ```
 
+Run scripts to create schema and to populate initial data in database
+
+
 ## References:
 
 Databse sample from SQL Server:
@@ -33,7 +36,7 @@ EF:
 
 https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
 
-PgAdmi, PostgreSQL and docker:
+PgAdmin, PostgreSQL and docker:
 
 https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89
 
